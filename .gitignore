@@ -46,3 +46,5 @@ Thumbs.db
 .vscode
 *.log
 /[Ll]ogs
+Logs/shadercompiler-UnityShaderCompiler.exe0.log
+Logs/Packages-Update.log
