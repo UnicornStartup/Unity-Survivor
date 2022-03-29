@@ -1,0 +1,58 @@
+@startuml Survive
+
+note left of SoundController: Start plays music
+note left of LanguageManager: In the static constructor load languages from Json
+
+Class DataClass{
+  .. PLAYER PREFS ..
+  public static float PLAYER_SETTINGS_MUSIC_VOLUME
+  public static float PLAYER_SETTINGS_EFFECT_VOLUME
+  public static float PLAYER_SETTINGS_QUALITY
+  public static string PLAYER_SETTINGS_LANG
+  ..
+  public static int PLAYER_GOLD
+}
+
+enum VolumeType{
+	MUSIC
+	EFFECT
+}
+
+Class SoundController{
+	private AudioSource musicPlayer
+	private AudioSource effectPlayer
+	private AudioClip[] music
+	private AudioClip[] efects
+	
+	void Start()
+	void playMusic()
+	void playEfect(string effect)
+	void _handlerOnVolumeChange(VolumeType type, float volume)
+}
+Class HomeControlller{
+  void onClickPlay()
+  void onClickStats()
+  void onClickSettings()
+  void _handlerOnLanguageChange(string lang)
+}
+
+Class SettingsControlller{
+	void onLanguageChange(string lang)
+	void onQualityChange(string quality)
+	void onVolumeChange(VolumeType type, float volume)
+	void _handlerOnLanguageChange(string lang)
+}
+
+Class LanguageManager{
+	private static Diccionary<string, Diccionary<string, string>>
+	
+	static LanguageManager()
+	public static string getText(string key)
+}
+
+Class PowerUpsController{
+
+  void _handlerOnLanguageChange(string lang)
+}
+
+@enduml
