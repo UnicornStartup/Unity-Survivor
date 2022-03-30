@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 joystickVector;
     private Rigidbody2D rb;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
         if (joystickVector.y != 0 || joystickVector.x != 0)
         {
             rb.velocity = new Vector2(joystickVector.x * playerSpeed, joystickVector.y * playerSpeed);
+
         }
         else
         {

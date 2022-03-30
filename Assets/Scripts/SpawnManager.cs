@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    int numObjects = 12;
+    int numObjects = 4;
     public GameObject prefab;
 
     int interval = 1;
     float nextTime = 0;
+    KdTree<EnemyController> enemys = new KdTree<EnemyController>();
     void Update()
     {
         if (Time.time >= nextTime)
@@ -20,9 +21,13 @@ public class SpawnManager : MonoBehaviour
             Vector3 pos = RandomCircle(center, 10.0f, a);
             GameObject newEnemy = Instantiate(prefab, pos, Quaternion.identity);
             newEnemy.GetComponent<EnemyController>().target = transform;
+            enemys.Add(newEnemy.GetComponent<EnemyController>());
             }
             nextTime += interval;
         }
+        enemys.UpdatePositions();
+        EnemyController closest = enemys.FindClosest(transform.position);
+        closest.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
     }
     Vector3 RandomCircle(Vector3 center, float radius, int a)
     {

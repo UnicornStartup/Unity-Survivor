@@ -3,6 +3,7 @@ using UnityEngine;
 public class DataClass
 {
     public static int CONFIG_COUNT_DOWN_START = 3;
+    public static Transform CHARACTER_TRANSFORM;
     public static float CONFIG_COUNT_DOWNT_MAX = 3;
 
     public static bool IS_CONTINUE = false;
