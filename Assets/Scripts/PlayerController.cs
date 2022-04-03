@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {    
     public float playerSpeed =3f;
+    public float backgroundSpeed =10f;
 
     private Vector2 joystickVector;
     private Rigidbody2D rb;
@@ -29,12 +30,20 @@ public class PlayerController : MonoBehaviour
     {
         if (joystickVector.y != 0 || joystickVector.x != 0)
         {
-            rb.velocity = new Vector2(joystickVector.x * playerSpeed, joystickVector.y * playerSpeed);
-
+            Vector2 movement = new Vector2(joystickVector.x * playerSpeed, joystickVector.y * playerSpeed);
+            rb.velocity = movement;
+            moveBackground(new Vector2(joystickVector.x/ backgroundSpeed, joystickVector.y/ backgroundSpeed));
         }
         else
         {
             rb.velocity = Vector2.zero;
         }
+    }
+
+    void moveBackground(Vector2 movement)
+    {
+        Transform quad = transform.Find("Quad");
+        Material material = quad.GetComponent<Renderer>().material;
+        material.mainTextureOffset += movement;
     }
 }
