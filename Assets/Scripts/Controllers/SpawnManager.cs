@@ -31,7 +31,6 @@ public class SpawnManager : MonoBehaviour
     }
     Vector3 RandomCircle(Vector3 center, float radius, int a)
     {
-        Debug.Log(a);
         float ang = a;
         Vector3 pos;
         pos.x = center.x + radius * Mathf.Sin(ang * Mathf.Deg2Rad);

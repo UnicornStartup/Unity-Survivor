@@ -1,17 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
-{    
-    public float playerSpeed =3f;
-    public float backgroundSpeed =10f;
+{
+    private float playerSpeed = 0f;
+    public float backgroundSpeed = 10f;
 
     private Vector2 joystickVector;
     private Rigidbody2D rb;
 
     void Start()
     {
+        playerSpeed = GetComponent<Stats>().moveSpeed;
         rb = GetComponent<Rigidbody2D>();
         JoystickController.onTouch += handleOnTouch;
     }
@@ -32,7 +31,7 @@ public class PlayerController : MonoBehaviour
         {
             Vector2 movement = new Vector2(joystickVector.x * playerSpeed, joystickVector.y * playerSpeed);
             rb.velocity = movement;
-            moveBackground(new Vector2(joystickVector.x/ backgroundSpeed, joystickVector.y/ backgroundSpeed));
+            moveBackground(new Vector2(joystickVector.x / backgroundSpeed, joystickVector.y / backgroundSpeed));
         }
         else
         {
