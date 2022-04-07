@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
     {
         Debug.Log("COLLISION" + other.gameObject.name);
         other.gameObject.GetComponent<HealthController>().damage(damage);
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
     private void Update()
     {

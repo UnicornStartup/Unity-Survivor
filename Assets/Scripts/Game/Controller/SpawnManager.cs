@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    int numObjects = 4;
+    int numObjects = 1;
     public GameObject prefab;
 
-    int interval = 1;
+    int interval = 4;
     float nextTime = 0;
+
+    public SpawnEnemy spawnEnemy;
+
+    private void Start()
+    {
+        spawnEnemy = GetComponent<SpawnEnemy>();
+    }
+
     KdTree<EnemyController> enemys = new KdTree<EnemyController>();
     void Update()
     {
@@ -19,15 +27,16 @@ public class SpawnManager : MonoBehaviour
         {
             int a = i * 30;
             Vector3 pos = RandomCircle(center, 10.0f, a);
-            GameObject newEnemy = Instantiate(prefab, new Vector3(0,0), Quaternion.identity);
-            newEnemy.AddComponent<EnemyController>()
-                    .setTarget(transform)
-                    .setPosition(pos)
-                    .setStats(new Stats().setHealth(2).setDamage(2).setMoveSpeed(3).setSpeedAtack(2))
-                    .setTileset("Bat")
-                    .setSprite("Bat_13")
-                    .enable();          
-            enemys.Add(newEnemy.GetComponent<EnemyController>());
+                spawnEnemy.spawn(pos, transform);
+            //GameObject newEnemy = Instantiate(prefab, new Vector3(0,0), Quaternion.identity);
+            //newEnemy.AddComponent<EnemyController>()
+            //        .setTarget(transform)
+            //        .setPosition(pos)
+            //        .setStats(new Stats().setHealth(2).setDamage(2).setMoveSpeed(3).setSpeedAtack(2))
+            //        .setTileset("Bat")
+            //        .setSprite("Bat_13")
+            //        .enable();          
+            //enemys.Add(newEnemy.GetComponent<EnemyController>());
             }
             nextTime += interval;
         }

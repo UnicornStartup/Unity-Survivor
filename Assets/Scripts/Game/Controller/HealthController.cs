@@ -23,7 +23,9 @@ public class HealthController : MonoBehaviour
         {
             if (!isPlayer)
             {
-                Destroy(gameObject);
+                //Destroy(gameObject);
+                EnemyCollection.removeEnemy(GetComponent<EnemyController>());
+                gameObject.SetActive(false);
             }
             //TODO: GAMEOVER
         }

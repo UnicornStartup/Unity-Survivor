@@ -170,6 +170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 176393668}
   - component: {fileID: 176393669}
+  - component: {fileID: 176393670}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -205,6 +206,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 6979817468950520890, guid: 046a7f4a2b3bbd444b2e522a11ba4291, type: 3}
+  spawnEnemy: {fileID: 0}
+--- !u!114 &176393670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176393667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6de232d30dc02af4ea499d3ac7a74178, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &398490038
 GameObject:
   m_ObjectHideFlags: 0
