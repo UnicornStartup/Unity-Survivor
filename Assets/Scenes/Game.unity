@@ -817,7 +817,6 @@ GameObject:
   - component: {fileID: 1138939264}
   - component: {fileID: 1138939263}
   - component: {fileID: 1138939265}
-  - component: {fileID: 1138939267}
   - component: {fileID: 1138939266}
   m_Layer: 0
   m_Name: Character
@@ -930,22 +929,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundSpeed: 10
---- !u!114 &1138939267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1138939262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9175b06b6e357745908e6ebcc934790, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  damage: 0
-  moveSpeed: 3
-  speedAtack: 0
 --- !u!1 &1208294163
 GameObject:
   m_ObjectHideFlags: 0
@@ -49258,14 +49241,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777780255}
-  m_LocalRotation: {x: -0, y: -0, z: 0.2622018, w: -0.9650131}
-  m_LocalPosition: {x: 1.034, y: -0.322, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.06310202, w: -0.99800706}
+  m_LocalPosition: {x: -1.05, y: -2.56, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2489.598}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -4327.236}
 --- !u!58 &1777780259
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -49413,7 +49396,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1445651552, guid: 046a7f4a2b3bbd444b2e522a11ba4291, type: 3}
+    - {fileID: 1445651553, guid: 046a7f4a2b3bbd444b2e522a11ba4291, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 046a7f4a2b3bbd444b2e522a11ba4291, type: 3}
 --- !u!1 &2051190404
 GameObject:

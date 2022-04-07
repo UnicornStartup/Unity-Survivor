@@ -1,11 +1,16 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyMoveController : MonoBehaviour
 {
-    public Transform target;
-    public float speed = 1f;
+    private Transform target;
+    private float speed;
     private float minDistance = 0.2f;
     private float range;
+    private void Start()
+    {
+        target = GetComponent<EnemyController>().target;
+        speed = GetComponent<EnemyController>().speed;
+    }
 
     void Update()
     {

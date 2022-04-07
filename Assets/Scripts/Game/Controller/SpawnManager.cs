@@ -19,14 +19,21 @@ public class SpawnManager : MonoBehaviour
         {
             int a = i * 30;
             Vector3 pos = RandomCircle(center, 10.0f, a);
-            GameObject newEnemy = Instantiate(prefab, pos, Quaternion.identity);
-            newEnemy.GetComponent<EnemyController>().target = transform;
+            GameObject newEnemy = Instantiate(prefab, new Vector3(0,0), Quaternion.identity);
+            newEnemy.AddComponent<EnemyController>()
+                    .setTarget(transform)
+                    .setPosition(pos)
+                    .setStats(new Stats().setHealth(2).setDamage(2).setMoveSpeed(3).setSpeedAtack(2))
+                    .setTileset("Bat")
+                    .setSprite("Bat_13")
+                    .enable();          
             enemys.Add(newEnemy.GetComponent<EnemyController>());
             }
             nextTime += interval;
         }
         enemys.UpdatePositions();
         EnemyController closest = enemys.FindClosest(transform.position);
+        if(closest != null)
         closest.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
     }
     Vector3 RandomCircle(Vector3 center, float radius, int a)

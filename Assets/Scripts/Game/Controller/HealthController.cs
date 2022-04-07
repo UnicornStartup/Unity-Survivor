@@ -8,7 +8,7 @@ public class HealthController : MonoBehaviour
 
     private void Start()
     {
-        health = gameObject.GetComponent<Stats>().health;
+        health = 12; //gameObject.GetComponent<Stats>().health;
     }
 
     public void damage(int dmg)

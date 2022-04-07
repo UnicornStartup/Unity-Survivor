@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        playerSpeed = GetComponent<Stats>().moveSpeed;
+        playerSpeed = 3;//GetComponent<Stats>().moveSpeed;
         rb = GetComponent<Rigidbody2D>();
         JoystickController.onTouch += handleOnTouch;
     }
