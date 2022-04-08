@@ -6,9 +6,9 @@ public class HealthController : MonoBehaviour
     public int health;
     public bool isPlayer = false;
 
-    private void Start()
+    private void OnEnable()
     {
-        health = 12; //gameObject.GetComponent<Stats>().health;
+        health = gameObject.GetComponent<EnemyController>().stats.health;
     }
 
     public void damage(int dmg)

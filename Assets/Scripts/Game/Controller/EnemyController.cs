@@ -30,7 +30,7 @@ public class EnemyController : MonoBehaviour
     }
     public EnemyController setTileset(string nameCollection)
     {
-        tileSet = Resources.LoadAll<Sprite>($"Sprites/Enemy/{nameCollection}");        
+        tileSet = Resources.LoadAll<Sprite>($"Sprites/Enemy/{nameCollection}");
         return this;
     }
     public EnemyController setSprite(string nameSprite)
