@@ -4,7 +4,6 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public Transform target;
-    public float speed = 1f;
     public Stats stats;
     public Sprite[] tileSet;
     private void Start()

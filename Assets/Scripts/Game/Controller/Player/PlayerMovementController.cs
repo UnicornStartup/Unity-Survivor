@@ -1,18 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerMovementController : MonoBehaviour
 {
     private float playerSpeed = 0f;
     public float backgroundSpeed = 10f;
 
     private Vector2 joystickVector;
     private Rigidbody2D rb;
+    public Transform target;
 
     void Start()
     {
-        playerSpeed = 3;//GetComponent<Stats>().moveSpeed;
         rb = GetComponent<Rigidbody2D>();
         JoystickController.onTouch += handleOnTouch;
+        playerSpeed = GetComponent<PlayerController>().stats.moveSpeed;
     }
 
     void FixedUpdate()

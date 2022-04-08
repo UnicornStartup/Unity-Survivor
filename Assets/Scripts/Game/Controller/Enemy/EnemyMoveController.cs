@@ -9,7 +9,7 @@ public class EnemyMoveController : MonoBehaviour
     private void Start()
     {
         target = GetComponent<EnemyController>().target;
-        speed = GetComponent<EnemyController>().speed;
+        speed = GetComponent<EnemyController>().stats.moveSpeed;
     }
 
     void Update()
