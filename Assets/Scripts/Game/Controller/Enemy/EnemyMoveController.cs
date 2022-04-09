@@ -2,14 +2,16 @@
 
 public class EnemyMoveController : MonoBehaviour
 {
-    private Transform target;
-    private float speed;
-    private float minDistance = 0.2f;
+    public Transform target;
+    public float speed;
+    public float minDistance; //= 0.2f;
     private float range;
-    private void Start()
+
+    public void build(int speed, Transform target, float minDistance)
     {
-        target = GetComponent<EnemyController>().target;
-        speed = GetComponent<EnemyController>().stats.moveSpeed;
+        this.speed = speed;
+        this.target = target;
+        this.minDistance = minDistance;
     }
 
     void Update()

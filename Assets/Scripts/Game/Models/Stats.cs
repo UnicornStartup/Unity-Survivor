@@ -1,11 +1,11 @@
-using UnityEngine;
-
 public class Stats
 {
     public int health;
     public int damage;
     public int moveSpeed;
     public int speedAtack;
+
+    public Stats() { }
 
     public Stats setHealth(int health)
     {

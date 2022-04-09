@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -22,17 +20,17 @@ public class SpawnManager : MonoBehaviour
         if (Time.time >= nextTime)
         {
             Vector3 center = transform.position;
-        for (int i = 0; i < numObjects; i++)
-        {
-            int a = i * 30;
-            Vector3 pos = RandomCircle(center, 10.0f, a);
-            spawnEnemy.spawn(pos, transform);           
+            for (int i = 0; i < numObjects; i++)
+            {
+                int a = i * 30;
+                Vector3 pos = RandomCircle(center, 10.0f, a);
+                spawnEnemy.spawn(pos, transform);
             }
             nextTime += interval;
         }
         GameObject closest = EnemyCollection.getClosed(transform);
-        if(closest != null)
-        closest.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        if (closest != null)
+            closest.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
     }
     Vector3 RandomCircle(Vector3 center, float radius, int a)
     {

@@ -1,38 +1,50 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnEnemy : MonoBehaviour
 {
     public GameObject spawn(Vector3 position, Transform transform)
     {
-        GameObject enemy = getEnemy(position, transform);
-        EnemyCollection.addEnemy(enemy.GetComponent<EnemyController>());
-        return enemy;
+        EnemyController enemy = getEnemy(position, transform);
+        EnemyCollection.addEnemy(enemy);
+        return enemy.gameObject;
     }
 
-    public GameObject getEnemy(Vector3 position, Transform transform)
+    public EnemyController getEnemy(Vector3 position, Transform transform)
     {
         EnemyController enemy = EnemyCollection.getDisabledEnemy();
         if (enemy == null)
         {
             return instantiateEnemy(position, transform);
         }
-        enemy.setPosition(position).setTarget(transform).setStats(new Stats().setHealth(2).setDamage(2).setMoveSpeed(3).setSpeedAtack(2)).enable();
+        enemy = new EnemyBuilder(enemy.gameObject)
+            .setTarget(transform)
+            .setPosition(position)
+            .setTileset("Bat")
+            .setSprite("Bat_13")
+            .setHealth(2)
+            .setDamage(2)
+            .setMoveSpeed(2)
+            .setSpeedAtack(0)
+            .build()
+            .enable();
 
-        return enemy.gameObject;
+        return enemy;
     }
-    public GameObject instantiateEnemy(Vector3 position, Transform transform)
+    public EnemyController instantiateEnemy(Vector3 position, Transform transform)
     {
-        GameObject prefab = Resources.Load<GameObject>($"Prefabs/Enemy");
-        GameObject newEnemy = Instantiate(prefab, new Vector3(0, 0), Quaternion.identity);
-        newEnemy.AddComponent<EnemyController>()
-                .setTarget(transform)
-                .setPosition(position)
-                .setStats(new Stats().setHealth(2).setDamage(2).setMoveSpeed(3).setSpeedAtack(2))
-                .setTileset("Bat")
-                .setSprite("Bat_13")
-                .enable();
-        return newEnemy;
+        EnemyController enemy = new EnemyBuilder()
+            .setTarget(transform)
+            .setPosition(position)
+            .setTileset("Bat")
+            .setSprite("Bat_13")
+            .setHealth(2)
+            .setDamage(2)
+            .setMoveSpeed(2)
+            .setSpeedAtack(0)
+            .build()
+            .enable();
+
+        Instantiate(enemy.gameObject, new Vector3(0, 0), Quaternion.identity);
+        return enemy;
     }
 }
