@@ -7,18 +7,20 @@ public class EnemyBuilder
     public Stats stats = new Stats();
     public Sprite[] tileSet;
 
-    public GameObject enemy = new GameObject();
+    public GameObject enemy;
 
     public EnemyBuilder()
     {
+        enemy = new GameObject();
         this.enemy.SetActive(false);
         this.enemy.AddComponent<EnemyController>();
         this.enemy.AddComponent<SpriteRenderer>();
-        //this.enemy.AddComponent<Rigidbody2D>();
+        Rigidbody2D rigidbody2D = enemy.AddComponent<Rigidbody2D>();
         BoxCollider2D boxCollider = enemy.AddComponent<BoxCollider2D>();
+        rigidbody2D.gravityScale = 0;
         boxCollider.size = new Vector2(0.323822f, 0.2223973f);
         boxCollider.offset = new Vector2(0.0050477392f, 0.03725329f);
-        boxCollider.isTrigger = true;
+        boxCollider.isTrigger = false;
         this.enemy.transform.localScale = new Vector3(5, 4, 0);
     }
     public EnemyBuilder(GameObject enemy)
@@ -82,8 +84,14 @@ public class EnemyBuilder
         controller.target = this.target;
         controller.tileSet = this.tileSet;
 
-        this.enemy.AddComponent<EnemyMoveController>().build(controller.stats.moveSpeed, controller.target, 0.2f);
-        this.enemy.AddComponent<HealthController>().build(controller.stats.moveSpeed, false);
+        if (this.enemy.TryGetComponent(out EnemyMoveController enemyMoveController))
+            enemyMoveController.build(controller.stats.moveSpeed, controller.target, 0.2f);
+        else this.enemy.AddComponent<EnemyMoveController>().build(controller.stats.moveSpeed, controller.target, 0.2f);
+
+        if (this.enemy.TryGetComponent(out HealthController healthController))
+            healthController.build(controller.stats.moveSpeed, false);
+        else this.enemy.AddComponent<HealthController>().build(controller.stats.moveSpeed, false);
+
         return controller;
-    }
+    }   
 }

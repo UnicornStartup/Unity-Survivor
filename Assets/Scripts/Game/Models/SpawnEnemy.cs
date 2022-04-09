@@ -20,7 +20,7 @@ public class SpawnEnemy : MonoBehaviour
             .setTarget(transform)
             .setPosition(position)
             .setTileset("Bat")
-            .setSprite("Bat_13")
+            .setSprite("Bat_0")
             .setHealth(2)
             .setDamage(2)
             .setMoveSpeed(2)
@@ -36,7 +36,7 @@ public class SpawnEnemy : MonoBehaviour
             .setTarget(transform)
             .setPosition(position)
             .setTileset("Bat")
-            .setSprite("Bat_13")
+            .setSprite("Bat_0")
             .setHealth(2)
             .setDamage(2)
             .setMoveSpeed(2)
@@ -44,7 +44,6 @@ public class SpawnEnemy : MonoBehaviour
             .build()
             .enable();
 
-        Instantiate(enemy.gameObject, new Vector3(0, 0), Quaternion.identity);
         return enemy;
     }
 }

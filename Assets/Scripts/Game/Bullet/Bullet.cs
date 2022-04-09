@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public int damage { set; get; } = 1000;
+    public int damage { set; get; } = 2;
     public Transform target;
 
     public float speed { set; get; }
@@ -11,7 +11,9 @@ public class Bullet : MonoBehaviour
     {
         Debug.Log("COLLISION" + other.gameObject.name);
         other.gameObject.GetComponent<HealthController>().damage(damage);
-        //Destroy(gameObject);
+
+        BulletCollection.removeBullet(GetComponent<BulletController>());
+        gameObject.SetActive(false);
     }
     private void Update()
     {

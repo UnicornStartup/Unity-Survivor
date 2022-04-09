@@ -9,10 +9,12 @@ public class SpawnManager : MonoBehaviour
     float nextTime = 0;
 
     public SpawnEnemy spawnEnemy;
+    public SpawnBullet spawnBullet;
 
     private void Start()
     {
         spawnEnemy = GetComponent<SpawnEnemy>();
+        spawnBullet = GetComponent<SpawnBullet>();
     }
 
     void Update()
@@ -27,10 +29,15 @@ public class SpawnManager : MonoBehaviour
                 spawnEnemy.spawn(pos, transform);
             }
             nextTime += interval;
+
+            GameObject closest = EnemyCollection.getClosed(transform);
+            if (closest != null)
+            {
+                closest.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+                spawnBullet.spawn(this.transform.position, closest.transform);
+            }
         }
-        GameObject closest = EnemyCollection.getClosed(transform);
-        if (closest != null)
-            closest.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+
     }
     Vector3 RandomCircle(Vector3 center, float radius, int a)
     {
