@@ -15,6 +15,7 @@ public class EnemyBuilder
         this.enemy.SetActive(false);
         this.enemy.AddComponent<EnemyController>();
         this.enemy.AddComponent<SpriteRenderer>();
+        this.enemy.AddComponent<ExperienceSpawner>();
         Rigidbody2D rigidbody2D = enemy.AddComponent<Rigidbody2D>();
         BoxCollider2D boxCollider = enemy.AddComponent<BoxCollider2D>();
         rigidbody2D.gravityScale = 0;
@@ -22,6 +23,8 @@ public class EnemyBuilder
         boxCollider.offset = new Vector2(0.0050477392f, 0.03725329f);
         boxCollider.isTrigger = false;
         this.enemy.transform.localScale = new Vector3(5, 4, 0);
+        this.enemy.name = "Enemy";
+        this.enemy.tag = "Enemy";
     }
     public EnemyBuilder(GameObject enemy)
     {
@@ -93,5 +96,5 @@ public class EnemyBuilder
         else this.enemy.AddComponent<HealthController>().build(controller.stats.moveSpeed, false);
 
         return controller;
-    }   
+    }
 }

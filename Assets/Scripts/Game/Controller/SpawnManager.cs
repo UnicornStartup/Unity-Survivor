@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    int numObjects = 1;
+    int numObjects = 10;
     public GameObject prefab;
 
-    int interval = 4;
+    int interval = 1;
     float nextTime = 0;
 
     public SpawnEnemy spawnEnemy;
@@ -30,12 +30,6 @@ public class SpawnManager : MonoBehaviour
             }
             nextTime += interval;
 
-            GameObject closest = EnemyCollection.getClosed(transform);
-            if (closest != null)
-            {
-                closest.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
-                spawnBullet.spawn(this.transform.position, closest.transform);
-            }
         }
 
     }

@@ -10,13 +10,16 @@ public class BulletBuilder
     public int damage;
     public int speed;
 
-    public BulletBuilder(int damage = 1, int speed = 4)
+    public BulletBuilder()
     {
         bullet = new GameObject();
         this.bullet.SetActive(false);
         this.bullet.AddComponent<SpriteRenderer>();
         this.bullet.AddComponent<BulletController>();
         this.bullet.AddComponent<Bullet>();
+        this.bullet.AddComponent<BulletMovementController>();
+        this.bullet.name = "Bullet";
+        this.bullet.tag = "Bullet";
 
         CircleCollider2D colider = bullet.AddComponent<CircleCollider2D>();
         colider.radius = 4;
@@ -72,11 +75,7 @@ public class BulletBuilder
         controller.speed = this.speed;
         controller.target = this.target;
         controller.tileSet = this.tileSet;
-
-        if (this.bullet.TryGetComponent(out BulletMovementController bulletMoveController))
-            bulletMoveController.build(controller.speed, controller.target);
-        else this.bullet.AddComponent<BulletMovementController>().build(controller.speed, controller.target);
-
+        this.bullet.GetComponent<BulletMovementController>().build(controller.speed, controller.target);
         return controller;
     }
 }

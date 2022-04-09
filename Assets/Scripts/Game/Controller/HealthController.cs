@@ -14,7 +14,6 @@ public class HealthController : MonoBehaviour
 
     public void damage(int dmg)
     {
-        Debug.Log(gameObject.name + " hp: " + health);
         health -= dmg;
     }
 
@@ -24,9 +23,7 @@ public class HealthController : MonoBehaviour
         {
             if (!isPlayer)
             {
-                //Destroy(gameObject);
-                EnemyCollection.removeEnemy(GetComponent<EnemyController>());
-                gameObject.SetActive(false);
+                GetComponent<EnemyController>().die();
             }
             //TODO: GAMEOVER
         }

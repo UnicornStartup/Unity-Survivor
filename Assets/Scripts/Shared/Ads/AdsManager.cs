@@ -24,15 +24,9 @@ public class AdsManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowLis
 
     public void OnUnityAdsAdLoaded(string adUnitId) { }
 
-    public void OnUnityAdsFailedToLoad(string adUnitId, UnityAdsLoadError error, string message)
-    {
-        Debug.Log($"Error loading Ad Unit: {adUnitId} - {error.ToString()} - {message}");
-    }
+    public void OnUnityAdsFailedToLoad(string adUnitId, UnityAdsLoadError error, string message) { }
 
-    public void OnUnityAdsShowFailure(string adUnitId, UnityAdsShowError error, string message)
-    {
-        Debug.Log($"Error showing Ad Unit {adUnitId}: {error.ToString()} - {message}");
-    }
+    public void OnUnityAdsShowFailure(string adUnitId, UnityAdsShowError error, string message) { }
 
     public void OnUnityAdsShowStart(string adUnitId) { }
     public void OnUnityAdsShowClick(string adUnitId) { }

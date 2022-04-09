@@ -650,7 +650,7 @@ GameObject:
   - component: {fileID: 1208294166}
   - component: {fileID: 1208294165}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -693,6 +693,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 0}
   slider: {fileID: 0}
+  experience: 0
+  level: 0
 --- !u!114 &1208294166
 MonoBehaviour:
   m_ObjectHideFlags: 0

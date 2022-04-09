@@ -6,9 +6,13 @@ public class PlayerController : MonoBehaviour
     public Transform target;
     public Stats stats;
     public Sprite[] tileSet;
+    public LevelController level;
     private void Start()
     {
         gameObject.AddComponent<PlayerMovementController>();
+        gameObject.AddComponent<ShootController>();
+        gameObject.AddComponent<SpawnBullet>();
+        level = GameObject.Find("Canvas/Level").GetComponent<LevelController>();
     }
 
     public PlayerController setStats(Stats stats)
@@ -27,4 +31,19 @@ public class PlayerController : MonoBehaviour
         return this;
     }
 
+    public void addExp(int value)
+    {
+        Debug.Log("asd");
+        level.add(value);
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+
+        if (other.gameObject.tag == "Exp")
+        {
+            ExperienceController experienceController = other.gameObject.GetComponent<ExperienceController>();
+            addExp(experienceController.value);
+            experienceController.disable();
+        }
+    }
 }

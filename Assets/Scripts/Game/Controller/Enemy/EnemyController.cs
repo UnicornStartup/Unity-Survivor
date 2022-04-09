@@ -17,4 +17,11 @@ public class EnemyController : MonoBehaviour
         gameObject.SetActive(false);
         return this;
     }
+
+    public void die()
+    {
+        EnemyCollection.removeEnemy(this);
+        gameObject.SetActive(false);
+        GetComponent<ExperienceSpawner>().spawn(gameObject.transform.position);
+    }
 }
