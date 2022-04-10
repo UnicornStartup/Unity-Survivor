@@ -40,8 +40,9 @@ public class PlayerController : MonoBehaviour
     {
         level.add(value);
 
-        Debug.Log(GetComponent<PlayerController>().stats.speedAtack);
-        GetComponent<PlayerController>().setAtackSpeed(GetComponent<PlayerController>().stats.speedAtack - (value / 10));
+        float speed = stats.speedAtack - (value / 100f);
+        float maxSpeed = speed >= 0.1f ? speed: 0.001f ;
+        setAtackSpeed(maxSpeed);
     }
     void OnTriggerEnter2D(Collider2D other)
     {

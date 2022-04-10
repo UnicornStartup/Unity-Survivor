@@ -17,6 +17,7 @@ public class ExperienceBuilder
         BoxCollider2D collider = this.experience.AddComponent<BoxCollider2D>();
         collider.size = new Vector2(1, 1);
         collider.isTrigger = true;
+        this.experience.transform.localScale = new Vector3(0.4f, 0.4f);
         this.experience.AddComponent<ExperienceController>();
         this.experience.name = "Experience";
         this.experience.tag = "Exp";

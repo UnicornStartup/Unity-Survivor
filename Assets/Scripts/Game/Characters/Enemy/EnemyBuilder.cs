@@ -22,7 +22,7 @@ public class EnemyBuilder
         boxCollider.size = new Vector2(0.323822f, 0.2223973f);
         boxCollider.offset = new Vector2(0.0050477392f, 0.03725329f);
         boxCollider.isTrigger = false;
-        this.enemy.transform.localScale = new Vector3(5, 4, 0);
+        this.enemy.transform.localScale = new Vector3(3, 3, 0);
         this.enemy.name = "Enemy";
         this.enemy.tag = "Enemy";
     }
