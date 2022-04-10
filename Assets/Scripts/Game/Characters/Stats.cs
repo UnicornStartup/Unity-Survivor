@@ -3,7 +3,7 @@ public class Stats
     public int health;
     public int damage;
     public int moveSpeed;
-    public int speedAtack;
+    public float speedAtack;
 
     public Stats() { }
 
@@ -22,7 +22,7 @@ public class Stats
         this.moveSpeed = moveSpeed;
         return this;
     }
-    public Stats setSpeedAtack(int speedAtack)
+    public Stats setSpeedAtack(float speedAtack)
     {
         this.speedAtack = speedAtack;
         return this;

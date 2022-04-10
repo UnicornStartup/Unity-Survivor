@@ -36,7 +36,7 @@ public class LevelController : MonoBehaviour
         {
             experience -= 100;
             level++;
-            text.text = level.ToString();
+            text.text = level.ToString();           
         }
         slider.value = experience;
     }

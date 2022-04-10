@@ -20,6 +20,11 @@ public class PlayerController : MonoBehaviour
         this.stats = stats;
         return this;
     }
+    public PlayerController setAtackSpeed(float atckSpeed)
+    {
+        this.stats.speedAtack = atckSpeed;
+        return this;
+    }
     public PlayerController setTileset(string nameCollection)
     {
         tileSet = Resources.LoadAll<Sprite>($"Sprites/Character/{nameCollection}");
@@ -33,8 +38,10 @@ public class PlayerController : MonoBehaviour
 
     public void addExp(int value)
     {
-        Debug.Log("asd");
         level.add(value);
+
+        Debug.Log(GetComponent<PlayerController>().stats.speedAtack);
+        GetComponent<PlayerController>().setAtackSpeed(GetComponent<PlayerController>().stats.speedAtack - (value / 10));
     }
     void OnTriggerEnter2D(Collider2D other)
     {
