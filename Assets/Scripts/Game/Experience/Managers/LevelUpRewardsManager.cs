@@ -2,7 +2,7 @@ using System;
 
 public class LevelUpRewardsManager
 {
-    private static Random random = new Random();
+    private static System.Random random = new System.Random();
 
     public static LevelUpReward getReward()
     {
@@ -19,19 +19,18 @@ public class LevelUpRewardsManager
                 value = (float)random.NextDouble() * (LevelUpRewardsSettings.MAX_DAMAGE - LevelUpRewardsSettings.MIN_DAMAGE) + LevelUpRewardsSettings.MIN_DAMAGE;
                 break;
             case LevelUpRewardType.Gold:
-                value = (float)random.NextDouble() * (LevelUpRewardsSettings.MAX_GOLD - LevelUpRewardsSettings.MIN_GOLD) + LevelUpRewardsSettings.MIN_GOLD;
+                value = (int)random.NextDouble() * (LevelUpRewardsSettings.MAX_GOLD - LevelUpRewardsSettings.MIN_GOLD) + LevelUpRewardsSettings.MIN_GOLD;
                 break;
             case LevelUpRewardType.Health:
-                value = (float)random.NextDouble() * (LevelUpRewardsSettings.MAX_HEALTH - LevelUpRewardsSettings.MIN_HEALTH) + LevelUpRewardsSettings.MIN_HEALTH;
+                value = (int)random.NextDouble() * (LevelUpRewardsSettings.MAX_HEALTH - LevelUpRewardsSettings.MIN_HEALTH) + LevelUpRewardsSettings.MIN_HEALTH;
                 break;
-            case LevelUpRewardType.HealthRegeneration:
-                value = (float)random.NextDouble() * (LevelUpRewardsSettings.MAX_HEALTH_REGENERATION - LevelUpRewardsSettings.MIN_HEALTH_REGENERATION) + LevelUpRewardsSettings.MIN_HEALTH_REGENERATION;
+            case LevelUpRewardType.Regeneration:
+                value = (int)random.NextDouble() * (LevelUpRewardsSettings.MAX_REGENERATION - LevelUpRewardsSettings.MIN_REGENERATION) + LevelUpRewardsSettings.MIN_REGENERATION;
                 break;
             case LevelUpRewardType.MoveSpeed:
                 value = (float)random.NextDouble() * (LevelUpRewardsSettings.MAX_MOVE_SPEED - LevelUpRewardsSettings.MIN_MOVE_SPEED) + LevelUpRewardsSettings.MIN_MOVE_SPEED;
                 break;
         }
-
-        return new LevelUpRewardBuilder().setType(randomType).setValue(1f).build();
+        return new LevelUpRewardBuilder().setType(randomType).setValue(value).build();
     }
 }

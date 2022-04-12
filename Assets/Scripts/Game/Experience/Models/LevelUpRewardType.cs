@@ -7,5 +7,5 @@ public enum LevelUpRewardType
     AtackSpeed,
     MoveSpeed,
     Damage,
-    HealthRegeneration
+    Regeneration
 }

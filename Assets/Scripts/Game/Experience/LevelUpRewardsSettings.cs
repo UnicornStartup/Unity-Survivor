@@ -17,6 +17,6 @@ public class LevelUpRewardsSettings
     public static float MAX_MOVE_SPEED = 1;
     public static float MIN_MOVE_SPEED = 0.01f;
 
-    public static int MAX_HEALTH_REGENERATION = 100;
-    public static int MIN_HEALTH_REGENERATION = 10;
+    public static int MAX_REGENERATION = 100;
+    public static int MIN_REGENERATION = 10;
 }

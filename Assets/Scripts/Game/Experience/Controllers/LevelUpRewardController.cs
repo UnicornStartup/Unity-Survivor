@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class LevelUpRewardController : MonoBehaviour
 {
@@ -9,12 +10,17 @@ public class LevelUpRewardController : MonoBehaviour
 
     private void OnEnable()
     {
-
+        Time.timeScale = 0;
         this.prefab = Resources.Load<GameObject>("Prefabs/Reward");
         this.rewards = transform.Find("Rewards").gameObject;
         this.info = transform.Find("Info").gameObject;
-        removeRewards();
         buildRewards();
+    }
+
+    private void OnDisable()
+    {
+        removeRewards();
+        Time.timeScale = 1;
     }
 
     private void buildRewards()
@@ -25,6 +31,8 @@ public class LevelUpRewardController : MonoBehaviour
             Debug.Log("type: " + lvlUpReward.type + " value: " + lvlUpReward.value);
             GameObject reward = Instantiate(prefab, new Vector3(0, 0), Quaternion.identity);
             reward.gameObject.transform.SetParent(rewards.gameObject.transform);
+            reward.transform.Find("type").GetComponent<TMP_Text>().text = lvlUpReward.type.ToString();
+            reward.transform.Find("value").GetComponent<TMP_Text>().text =  "+" + lvlUpReward.value.ToString();
         }
     }
 
