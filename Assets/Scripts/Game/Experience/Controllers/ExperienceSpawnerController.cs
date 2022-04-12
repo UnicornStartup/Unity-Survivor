@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ExperienceSpawner : MonoBehaviour
+public class ExperienceSpawnerController : MonoBehaviour
 {
     public GameObject spawn(Vector3 position)
     {

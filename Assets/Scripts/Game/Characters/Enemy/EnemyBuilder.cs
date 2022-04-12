@@ -15,7 +15,7 @@ public class EnemyBuilder
         this.enemy.SetActive(false);
         this.enemy.AddComponent<EnemyController>();
         this.enemy.AddComponent<SpriteRenderer>();
-        this.enemy.AddComponent<ExperienceSpawner>();
+        this.enemy.AddComponent<ExperienceSpawnerController>();
         Rigidbody2D rigidbody2D = enemy.AddComponent<Rigidbody2D>();
         BoxCollider2D boxCollider = enemy.AddComponent<BoxCollider2D>();
         rigidbody2D.gravityScale = 0;

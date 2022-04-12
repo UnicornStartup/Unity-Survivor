@@ -22,6 +22,6 @@ public class EnemyController : MonoBehaviour
     {
         EnemyCollection.removeEnemy(this);
         gameObject.SetActive(false);
-        GetComponent<ExperienceSpawner>().spawn(gameObject.transform.position);
+        GetComponent<ExperienceSpawnerController>().spawn(gameObject.transform.position);
     }
 }
