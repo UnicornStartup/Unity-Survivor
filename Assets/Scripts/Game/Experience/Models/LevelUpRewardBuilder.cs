@@ -24,7 +24,35 @@ public class LevelUpRewardBuilder
 
     public LevelUpReward build()
     {
-        //TODO: LoaaResource
+        sprite = Resources.LoadAll<Sprite>("Sprites/Icons/icons")[getImageId()];
+
         return new LevelUpReward(value, type, sprite);
+    }
+
+    public int getImageId()
+    {
+        int value = 0;
+        switch (type)
+        {
+            case LevelUpRewardType.AtackSpeed:
+                value = 0;
+                break;
+            case LevelUpRewardType.Damage:
+                value = 0;
+                break;
+            case LevelUpRewardType.MoveSpeed:
+                value = 2;
+                break;
+            case LevelUpRewardType.Gold:
+                value = 2;
+                break;
+            case LevelUpRewardType.Health:
+                value = 1;
+                break;
+            case LevelUpRewardType.Regeneration:
+                value = 1;
+                break;
+        }
+        return value;
     }
 }

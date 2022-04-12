@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class LevelUpRewardController : MonoBehaviour
@@ -28,12 +29,25 @@ public class LevelUpRewardController : MonoBehaviour
         for (int i = 0; i < LevelUpRewardsSettings.NUMBER_REWARDS; i++)
         {
             LevelUpReward lvlUpReward = LevelUpRewardsManager.getReward();
-            Debug.Log("type: " + lvlUpReward.type + " value: " + lvlUpReward.value);
+            // Debug.Log("type: " + lvlUpReward.type + " value: " + lvlUpReward.value);
             GameObject reward = Instantiate(prefab, new Vector3(0, 0), Quaternion.identity);
             reward.gameObject.transform.SetParent(rewards.gameObject.transform);
             reward.transform.Find("type").GetComponent<TMP_Text>().text = lvlUpReward.type.ToString();
-            reward.transform.Find("value").GetComponent<TMP_Text>().text =  "+" + lvlUpReward.value.ToString();
+            reward.transform.Find("value").GetComponent<TMP_Text>().text = "+" + lvlUpReward.value.ToString();
+            reward.transform.Find("value").GetComponent<TMP_Text>().text = "+" + lvlUpReward.value.ToString();
+            reward.transform.Find("sprite").GetComponent<Image>().sprite = lvlUpReward.sprite;
+            reward.GetComponent<Button>().onClick.AddListener(delegate { clickHandler(lvlUpReward); });
         }
+    }
+
+    public void enable()
+    {
+        this.gameObject.SetActive(true);
+    }
+
+    public void disable()
+    {
+        this.gameObject.SetActive(false);
     }
 
     private void removeRewards()
@@ -44,4 +58,9 @@ public class LevelUpRewardController : MonoBehaviour
         }
     }
 
+    public void clickHandler(LevelUpReward reward)
+    {
+        Debug.Log("Se ha seleccionado: " + reward.type);
+        disable();
+    }
 }

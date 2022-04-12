@@ -18,17 +18,17 @@ public class LevelUpRewardsManager
             case LevelUpRewardType.Damage:
                 value = (float)random.NextDouble() * (LevelUpRewardsSettings.MAX_DAMAGE - LevelUpRewardsSettings.MIN_DAMAGE) + LevelUpRewardsSettings.MIN_DAMAGE;
                 break;
-            case LevelUpRewardType.Gold:
-                value = (int)random.NextDouble() * (LevelUpRewardsSettings.MAX_GOLD - LevelUpRewardsSettings.MIN_GOLD) + LevelUpRewardsSettings.MIN_GOLD;
-                break;
-            case LevelUpRewardType.Health:
-                value = (int)random.NextDouble() * (LevelUpRewardsSettings.MAX_HEALTH - LevelUpRewardsSettings.MIN_HEALTH) + LevelUpRewardsSettings.MIN_HEALTH;
-                break;
-            case LevelUpRewardType.Regeneration:
-                value = (int)random.NextDouble() * (LevelUpRewardsSettings.MAX_REGENERATION - LevelUpRewardsSettings.MIN_REGENERATION) + LevelUpRewardsSettings.MIN_REGENERATION;
-                break;
             case LevelUpRewardType.MoveSpeed:
                 value = (float)random.NextDouble() * (LevelUpRewardsSettings.MAX_MOVE_SPEED - LevelUpRewardsSettings.MIN_MOVE_SPEED) + LevelUpRewardsSettings.MIN_MOVE_SPEED;
+                break;
+            case LevelUpRewardType.Gold:
+                value = random.Next(LevelUpRewardsSettings.MIN_GOLD, LevelUpRewardsSettings.MAX_GOLD);
+                break;
+            case LevelUpRewardType.Health:
+                value = random.Next(LevelUpRewardsSettings.MIN_HEALTH, LevelUpRewardsSettings.MAX_HEALTH);
+                break;
+            case LevelUpRewardType.Regeneration:
+                value = random.Next(LevelUpRewardsSettings.MIN_REGENERATION, LevelUpRewardsSettings.MAX_REGENERATION);
                 break;
         }
         return new LevelUpRewardBuilder().setType(randomType).setValue(value).build();

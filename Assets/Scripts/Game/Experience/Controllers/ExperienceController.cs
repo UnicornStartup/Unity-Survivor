@@ -19,6 +19,4 @@ public class ExperienceController : MonoBehaviour
         gameObject.SetActive(false);
         return this;
     }
-
-
 }

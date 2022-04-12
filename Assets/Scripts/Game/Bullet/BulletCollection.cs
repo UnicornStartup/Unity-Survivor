@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-public class BulletCollection 
+public class BulletCollection
 {
     public static List<BulletController> bullets = new List<BulletController>();
     public static List<BulletController> bulletsDisabled = new List<BulletController>();

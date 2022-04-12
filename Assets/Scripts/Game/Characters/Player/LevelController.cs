@@ -8,6 +8,7 @@ public class LevelController : MonoBehaviour
     public Slider slider;
     public int experience;
     public int level;
+    public LevelUpRewardController rewardController;
 
     void Start()
     {
@@ -27,6 +28,7 @@ public class LevelController : MonoBehaviour
                 text = child.GetComponent<TMP_Text>();
             }
         }
+        rewardController = transform.parent.Find("LevelUp").GetComponent<LevelUpRewardController>();
     }
 
     public void add(int exp)
@@ -36,7 +38,8 @@ public class LevelController : MonoBehaviour
         {
             experience -= 100;
             level++;
-            text.text = level.ToString();           
+            text.text = level.ToString();
+            rewardController.enable();
         }
         slider.value = experience;
     }

@@ -3,7 +3,7 @@ public class LevelUpRewardsSettings
     public static int NUMBER_REWARDS = 3;
 
     public static int MAX_GOLD = 10;
-    public static int MIN_GOLD = 1;
+    public static int MIN_GOLD = 5;
 
     public static int MAX_HEALTH = 10;
     public static int MIN_HEALTH = 10;
