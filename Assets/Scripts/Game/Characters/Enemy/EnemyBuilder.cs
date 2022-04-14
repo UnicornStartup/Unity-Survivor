@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyBuilder
 {
     public Transform target;
-    public Stats stats = new Stats();
+    public StatCollection stats = new StatCollection();
     public Sprite[] tileSet;
 
     public GameObject enemy;
@@ -57,26 +57,9 @@ public class EnemyBuilder
         return this;
     }
 
-    public EnemyBuilder setHealth(int health)
+    public EnemyBuilder setStat(StatType type, float value)
     {
-        this.stats.health = health;
-        return this;
-    }
-    public EnemyBuilder setDamage(int damage)
-    {
-        this.stats.damage = damage;
-        return this;
-    }
-
-    public EnemyBuilder setMoveSpeed(int moveSpeed)
-    {
-        this.stats.moveSpeed = moveSpeed;
-        return this;
-    }
-
-    public EnemyBuilder setSpeedAtack(int speedAtack)
-    {
-        this.stats.speedAtack = speedAtack;
+        this.stats.addStat(type, value);
         return this;
     }
 
@@ -88,12 +71,12 @@ public class EnemyBuilder
         controller.tileSet = this.tileSet;
 
         if (this.enemy.TryGetComponent(out EnemyMoveController enemyMoveController))
-            enemyMoveController.build(controller.stats.moveSpeed, controller.target, 0.2f);
-        else this.enemy.AddComponent<EnemyMoveController>().build(controller.stats.moveSpeed, controller.target, 0.2f);
+            enemyMoveController.build((int)controller.stats.getvalue(StatType.MoveSpeed), controller.target, 0.2f);
+        else this.enemy.AddComponent<EnemyMoveController>().build((int)controller.stats.getvalue(StatType.MoveSpeed), controller.target, 0.2f);
 
         if (this.enemy.TryGetComponent(out HealthController healthController))
-            healthController.build(controller.stats.moveSpeed, false);
-        else this.enemy.AddComponent<HealthController>().build(controller.stats.moveSpeed, false);
+            healthController.build((int)controller.stats.getvalue(StatType.Health), false);
+        else this.enemy.AddComponent<HealthController>().build((int)controller.stats.getvalue(StatType.Health), false);
 
         return controller;
     }

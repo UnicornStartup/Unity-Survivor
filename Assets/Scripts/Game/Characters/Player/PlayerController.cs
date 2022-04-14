@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Transform target;
-    public Stats stats;
+    public StatCollection stats = new StatCollection();
     public Sprite[] tileSet;
     public LevelController level;
     private void Start()
@@ -15,21 +15,18 @@ public class PlayerController : MonoBehaviour
         level = GameObject.Find("Canvas/Level").GetComponent<LevelController>();
     }
 
-    public PlayerController setStats(Stats stats)
+    public PlayerController setStats(StatType type, float value)
     {
-        this.stats = stats;
+        this.stats.addStat(type, value);
         return this;
     }
-    public PlayerController setAtackSpeed(float atckSpeed)
-    {
-        this.stats.speedAtack = atckSpeed;
-        return this;
-    }
+
     public PlayerController setTileset(string nameCollection)
     {
         tileSet = Resources.LoadAll<Sprite>($"Sprites/Character/{nameCollection}");
         return this;
     }
+
     public PlayerController setSprite(string nameSprite)
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = tileSet.Single(s => s.name == nameSprite);
@@ -39,10 +36,6 @@ public class PlayerController : MonoBehaviour
     public void addExp(int value)
     {
         level.add(value);
-
-        float speed = stats.speedAtack - (value / 100f);
-        float maxSpeed = speed >= 0.1f ? speed: 0.001f ;
-        setAtackSpeed(maxSpeed);
     }
     void OnTriggerEnter2D(Collider2D other)
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour
 {
-    private float playerSpeed = 0f;
+    private PlayerController playerController;
     public float backgroundSpeed = 10f;
 
     private Vector2 joystickVector;
@@ -15,7 +15,8 @@ public class PlayerMovementController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         JoystickController.onTouch += handleOnTouch;
-        playerSpeed = GetComponent<PlayerController>().stats.moveSpeed;
+        playerController = GetComponent<PlayerController>();
+
     }
 
     void FixedUpdate()
@@ -32,7 +33,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         if (joystickVector.y != 0 || joystickVector.x != 0)
         {
-            Vector2 movement = new Vector2(joystickVector.x * playerSpeed, joystickVector.y * playerSpeed);
+            Vector2 movement = new Vector2(joystickVector.x * playerController.stats.getvalue(StatType.MoveSpeed), joystickVector.y * playerController.stats.getvalue(StatType.MoveSpeed));
             rb.velocity = movement;
             moveBackground(new Vector2(joystickVector.x / backgroundSpeed, joystickVector.y / backgroundSpeed));
         }

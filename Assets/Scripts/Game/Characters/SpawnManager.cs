@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    int numObjects = 10;
+    int numObjects = 2;
     public GameObject prefab;
 
-    int interval = 1;
+    int interval = 5;
     float nextTime = 0;
 
     public SpawnEnemy spawnEnemy;

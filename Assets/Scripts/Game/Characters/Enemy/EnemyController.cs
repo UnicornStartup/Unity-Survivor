@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public Transform target;
-    public Stats stats;
+    public StatCollection stats = new StatCollection();
     public Sprite[] tileSet;
 
     public EnemyController enable()

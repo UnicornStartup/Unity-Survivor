@@ -16,6 +16,7 @@ public class LevelUpRewardController : MonoBehaviour
         this.rewards = transform.Find("Rewards").gameObject;
         this.info = transform.Find("Info").gameObject;
         buildRewards();
+        this.info.GetComponent<PlayerStatsController>().enable();
     }
 
     private void OnDisable()
@@ -29,7 +30,6 @@ public class LevelUpRewardController : MonoBehaviour
         for (int i = 0; i < LevelUpRewardsSettings.NUMBER_REWARDS; i++)
         {
             LevelUpReward lvlUpReward = LevelUpRewardsManager.getReward();
-            // Debug.Log("type: " + lvlUpReward.type + " value: " + lvlUpReward.value);
             GameObject reward = Instantiate(prefab, new Vector3(0, 0), Quaternion.identity);
             reward.gameObject.transform.SetParent(rewards.gameObject.transform);
             reward.transform.Find("type").GetComponent<TMP_Text>().text = lvlUpReward.type.ToString();

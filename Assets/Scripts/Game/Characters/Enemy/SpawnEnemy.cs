@@ -21,10 +21,9 @@ public class SpawnEnemy : MonoBehaviour
             .setPosition(position)
             .setTileset("Bat")
             .setSprite("Bat_0")
-            .setHealth(2)
-            .setDamage(2)
-            .setMoveSpeed(2)
-            .setSpeedAtack(0)
+            .setStat(StatType.Health, 2)
+            .setStat(StatType.MoveSpeed, 2)
+            .setStat(StatType.Damage, 100)
             .build()
             .enable();
 
@@ -37,10 +36,9 @@ public class SpawnEnemy : MonoBehaviour
             .setPosition(position)
             .setTileset("Bat")
             .setSprite("Bat_0")
-            .setHealth(2)
-            .setDamage(2)
-            .setMoveSpeed(2)
-            .setSpeedAtack(0)
+            .setStat(StatType.Health, 2)
+            .setStat(StatType.MoveSpeed, 2)
+            .setStat(StatType.Damage, 100)
             .build()
             .enable();
 

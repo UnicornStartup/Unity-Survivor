@@ -18,7 +18,7 @@ public class ExperienceSpawnerController : MonoBehaviour
         }
         experience = new ExperienceBuilder(experience.gameObject)
             .setPosition(position)
-            .setValue(12)
+            .setValue(100)
             .build()
             .enable();
 
@@ -29,7 +29,7 @@ public class ExperienceSpawnerController : MonoBehaviour
         ExperienceController experience = new ExperienceBuilder()
             .setPosition(position)
             .setSprite("exp")
-            .setValue(12)
+            .setValue(100)
             .build()
             .enable();
 
