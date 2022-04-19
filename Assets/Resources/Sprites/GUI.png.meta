@@ -944,7 +944,7 @@ TextureImporter:
         height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 2, y: 2, z: 2, w: 2}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1259,7 +1259,7 @@ TextureImporter:
         height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 2, y: 2, z: 2, w: 2}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1280,7 +1280,7 @@ TextureImporter:
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 6, y: 5, z: 6, w: 6}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1448,7 +1448,7 @@ TextureImporter:
         height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 5, y: 5, z: 5, w: 5}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1559,12 +1559,12 @@ TextureImporter:
       GUI_45: 1175603978
       GUI_62: 386570754
       GUI_16: 1774761754
-      GUI_58: 2085589243
       GUI_52: -783688519
-      GUI_10: -1075645019
       GUI_7: 1825366834
-      GUI_31: 1616902397
+      GUI_10: -1075645019
       GUI_8: 481013355
+      GUI_31: 1616902397
+      GUI_58: 2085589243
       GUI_60: 2020462801
       GUI_28: 299028050
       GUI_5: 632705707
