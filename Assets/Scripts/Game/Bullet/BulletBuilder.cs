@@ -6,7 +6,6 @@ public class BulletBuilder
     public Transform target;
     public Sprite[] tileSet;
     public GameObject bullet;
-
     public int damage;
     public int speed;
 
@@ -16,7 +15,6 @@ public class BulletBuilder
         this.bullet.SetActive(false);
         this.bullet.AddComponent<SpriteRenderer>();
         this.bullet.AddComponent<BulletController>();
-        this.bullet.AddComponent<Bullet>();
         this.bullet.AddComponent<BulletMovementController>();
         this.bullet.name = "Bullet";
         this.bullet.tag = "Bullet";
@@ -68,14 +66,23 @@ public class BulletBuilder
         return this;
     }
 
-    public BulletController build()
+    public BulletBuilder enable()
+    {
+        bullet.SetActive(true);
+        return this;
+    }
+
+    public BulletBuilder disable()
+    {
+        bullet.SetActive(false);
+        return this;
+    }
+
+    public GameObject build()
     {
         BulletController controller = bullet.GetComponent<BulletController>();
-        controller.damage = this.damage;
-        controller.speed = this.speed;
-        controller.target = this.target;
-        controller.tileSet = this.tileSet;
+        controller.build(this.target, this.tileSet, this.damage, this.speed);
         this.bullet.GetComponent<BulletMovementController>().build(controller.speed, controller.target);
-        return controller;
+        return this.bullet;
     }
 }

@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine.UI;
-using UnityEngine;
 
 public class StatCollection
 {
@@ -19,7 +17,11 @@ public class StatCollection
 
     public void addStat(StatType type, float value)
     {
-        //Image image = Resources.LoadAll<Image>("Icons/Stats")[(int)type];
         this.stats.Add(new Stat(type, null, value));
+    }
+
+    public void setStat(StatType type, float value)
+    {
+        this.stats.Single(stat => stat.type == type).value = value;
     }
 }

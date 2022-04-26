@@ -4,14 +4,14 @@ public class SpawnBullet : MonoBehaviour
 {
     public GameObject spawn(Vector3 position, Transform transform, int damage)
     {
-        BulletController bullet = getBullet(position, transform, damage);
+        GameObject bullet = getBullet(position, transform, damage);
         BulletCollection.addBullet(bullet);
         return bullet.gameObject;
     }
 
-    public BulletController getBullet(Vector3 position, Transform transform, int damage)
+    public GameObject getBullet(Vector3 position, Transform transform, int damage)
     {
-        BulletController bullet = BulletCollection.getDisabledBullet();
+        GameObject bullet = BulletCollection.getDisabledBullet();
         if (bullet == null)
         {
             return instantiateBullet(position, transform, damage);
@@ -23,22 +23,22 @@ public class SpawnBullet : MonoBehaviour
             .setSprite("fireball")
             .setDamage(damage)
             .setSpeed(5)
-            .build()
-            .enable();
+            .enable()
+            .build();
 
         return bullet;
     }
-    public BulletController instantiateBullet(Vector3 position, Transform transform, int damage)
+    public GameObject instantiateBullet(Vector3 position, Transform transform, int damage)
     {
-        BulletController bullet = new BulletBuilder()
+        GameObject bullet = new BulletBuilder()
             .setTarget(transform)
             .setPosition(position)
             .setTileset("fireball")
             .setSprite("fireball")
             .setDamage(damage)
             .setSpeed(5)
-            .build()
-            .enable();
+            .enable()
+            .build();
 
         return bullet;
     }

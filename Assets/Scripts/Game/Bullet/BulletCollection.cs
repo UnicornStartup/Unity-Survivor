@@ -1,24 +1,25 @@
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
+
 public class BulletCollection
 {
-    public static List<BulletController> bullets = new List<BulletController>();
-    public static List<BulletController> bulletsDisabled = new List<BulletController>();
+    public static List<GameObject> bullets = new List<GameObject>();
+    public static List<GameObject> bulletsDisabled = new List<GameObject>();
 
-    public static BulletController getDisabledBullet()
+    public static GameObject getDisabledBullet()
     {
-        BulletController bulletController = bulletsDisabled.FirstOrDefault();
-        if (bulletController != null) bulletsDisabled.Remove(bulletController);
-        return bulletController;
+        GameObject bullet = bulletsDisabled.FirstOrDefault();
+        if (bullet != null) bulletsDisabled.Remove(bullet);
+        return bullet;
     }
-    public static void addBullet(BulletController bulletController)
+    public static void addBullet(GameObject bullet)
     {
-        bullets.Add(bulletController);
+        bullets.Add(bullet);
     }
-    public static void removeBullet(BulletController bulletController)
+    public static void removeBullet(GameObject bullet)
     {
-        bullets.Remove(bulletController);
-        bulletsDisabled.Add(bulletController);
+        bullets.Remove(bullet);
+        bulletsDisabled.Add(bullet);
     }
 }

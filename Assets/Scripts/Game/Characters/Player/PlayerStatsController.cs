@@ -9,7 +9,6 @@ public class PlayerStatsController : MonoBehaviour
 
     void OnEnable()
     {
-        Debug.Log("HI");
         removeStatsView();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         this.prefab = Resources.Load<GameObject>("Prefabs/Stat");

@@ -1,15 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletMovementController : MonoBehaviour
 {
     public Transform target;
-    public Transform oldTransform;
     public float speed;
-
-    Vector3 currentPos;
-    Vector3 direction;
+    private Vector3 currentPos;
+    private Vector3 direction;
 
     public void build(int speed, Transform target)
     {
@@ -21,16 +17,15 @@ public class BulletMovementController : MonoBehaviour
     {
         currentPos = transform.position;
         direction = (target.position - currentPos).normalized;
-
     }
 
     void Update()
-    {    
+    {
         transform.position += direction * Time.deltaTime * speed;
     }
     void OnBecameInvisible()
     {
-        BulletCollection.removeBullet(GetComponent<BulletController>());
+        BulletCollection.removeBullet(this.gameObject);
         gameObject.SetActive(false);
     }
 }

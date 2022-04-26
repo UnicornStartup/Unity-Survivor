@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
         level = GameObject.Find("Canvas/Level").GetComponent<LevelController>();
     }
 
-    public PlayerController setStats(StatType type, float value)
+    public PlayerController addStats(StatType type, float value)
     {
         this.stats.addStat(type, value);
         return this;

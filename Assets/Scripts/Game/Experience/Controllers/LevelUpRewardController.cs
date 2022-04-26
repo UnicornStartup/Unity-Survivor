@@ -7,6 +7,7 @@ public class LevelUpRewardController : MonoBehaviour
 
     GameObject prefab;
     GameObject rewards, info;
+    private PlayerController player;
 
 
     private void OnEnable()
