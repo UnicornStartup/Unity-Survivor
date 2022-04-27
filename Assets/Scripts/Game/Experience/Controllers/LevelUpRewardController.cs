@@ -9,7 +9,6 @@ public class LevelUpRewardController : MonoBehaviour
     GameObject rewards, info;
     private PlayerController player;
 
-
     private void OnEnable()
     {
         Time.timeScale = 0;
@@ -18,6 +17,7 @@ public class LevelUpRewardController : MonoBehaviour
         this.info = transform.Find("Info").gameObject;
         buildRewards();
         this.info.GetComponent<PlayerStatsController>().enable();
+        this.player = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     private void OnDisable()
@@ -61,7 +61,19 @@ public class LevelUpRewardController : MonoBehaviour
 
     public void clickHandler(LevelUpReward reward)
     {
-        Debug.Log("Se ha seleccionado: " + reward.type);
+        switch (reward.type)
+        {
+            case LevelUpRewardType.Gold:
+                //TODO: SISTEMA DE ORO
+                break;
+            case LevelUpRewardType.Regeneration:
+                //playerHealthController.health += (int)reward.value;
+                break;
+
+            default:
+                player.stats.upgradeStat((StatType)reward.type, reward.value);
+                break;
+        }
         disable();
     }
 }

@@ -20,8 +20,8 @@ public class StatCollection
         this.stats.Add(new Stat(type, null, value));
     }
 
-    public void setStat(StatType type, float value)
+    public void upgradeStat(StatType type, float value)
     {
-        this.stats.Single(stat => stat.type == type).value = value;
+        this.stats.Single(stat => stat.type == type).value += value;
     }
 }

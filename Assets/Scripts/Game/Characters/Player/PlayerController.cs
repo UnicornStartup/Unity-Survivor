@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Transform target;
-    public StatCollection stats = new StatCollection();
+    [SerializeField] public StatCollection stats = new StatCollection();
     public Sprite[] tileSet;
     public LevelController level;
     private void Start()
@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     {
         level.add(value);
     }
+
     void OnTriggerEnter2D(Collider2D other)
     {
 

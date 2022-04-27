@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class HealthController : MonoBehaviour
 {
-
+    public int maxHealth;
     public int health;
     public bool isPlayer = false;
 
     public void build(int health, bool isPlayer)
     {
         this.health = health;
+        this.maxHealth = health;
         this.isPlayer = isPlayer;
     }
 
