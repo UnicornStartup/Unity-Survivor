@@ -15,9 +15,9 @@ public class StatCollection
         return this.stats.Single(stat => stat.type == type);
     }
 
-    public void addStat(StatType type, float value)
+    public void addStat(StatType type, float value, bool hasImage)
     {
-        this.stats.Add(new Stat(type, null, value));
+        this.stats.Add(new Stat(type, value, hasImage));
     }
 
     public void upgradeStat(StatType type, float value)

@@ -35,22 +35,22 @@ public class LevelUpRewardBuilder
         switch (type)
         {
             case LevelUpRewardType.AtackSpeed:
-                value = 0;
+                value = 11;
                 break;
             case LevelUpRewardType.Damage:
-                value = 0;
+                value = 9;
                 break;
             case LevelUpRewardType.MoveSpeed:
                 value = 2;
                 break;
             case LevelUpRewardType.Gold:
-                value = 2;
+                value = 0;
                 break;
             case LevelUpRewardType.Health:
-                value = 1;
+                value = 4;
                 break;
             case LevelUpRewardType.Regeneration:
-                value = 1;
+                value = 12;
                 break;
         }
         return value;

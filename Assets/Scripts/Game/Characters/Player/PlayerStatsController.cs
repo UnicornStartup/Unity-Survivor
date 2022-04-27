@@ -20,9 +20,9 @@ public class PlayerStatsController : MonoBehaviour
         Debug.Log(playerController.stats.stats.Count);
         foreach (Stat stat in playerController.stats.stats)
         {
-            Debug.Log(stat.type);
+            Debug.Log(stat.type,this);
             GameObject statGO = Instantiate(this.prefab, new Vector3(0, 0), Quaternion.identity);
-            statGO.transform.Find("Image").GetComponent<Image>().color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+            statGO.transform.Find("Container").transform.Find("Image").GetComponent<Image>().sprite = stat.image;
             statGO.transform.Find("Value").GetComponent<TMP_Text>().text = stat.value.ToString();
             statGO.transform.SetParent(gameObject.transform);
         }

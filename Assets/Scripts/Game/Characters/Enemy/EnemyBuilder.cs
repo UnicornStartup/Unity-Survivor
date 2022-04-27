@@ -59,7 +59,7 @@ public class EnemyBuilder
 
     public EnemyBuilder setStat(StatType type, float value)
     {
-        this.stats.addStat(type, value);
+        this.stats.addStat(type, value, false);
         return this;
     }
 

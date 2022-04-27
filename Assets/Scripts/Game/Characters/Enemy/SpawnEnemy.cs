@@ -22,7 +22,7 @@ public class SpawnEnemy : MonoBehaviour
             .setTileset("Bat")
             .setSprite("Bat_0")
             .setStat(StatType.Health, 80)
-            .setStat(StatType.MoveSpeed, 2)
+            .setStat(StatType.MoveSpeed, 3)
             .setStat(StatType.Damage, 100)
             .build()
             .enable();

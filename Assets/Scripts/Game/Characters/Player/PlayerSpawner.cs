@@ -17,7 +17,7 @@ public class PlayerSpawner : MonoBehaviour
         newCharacter.AddComponent<PlayerController>()
                 .addStats(StatType.Health, 100)
                 .addStats(StatType.Damage, 40)
-                .addStats(StatType.MoveSpeed, 2)
+                .addStats(StatType.MoveSpeed, 4)
                 .addStats(StatType.AtackSpeed, 1)
                 .setTileset("wizzard_m_run_anim_f0")
                 .setSprite("wizzard_m_run_anim_f0");

@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 
     public PlayerController addStats(StatType type, float value)
     {
-        this.stats.addStat(type, value);
+        this.stats.addStat(type, value, true);
         return this;
     }
 
