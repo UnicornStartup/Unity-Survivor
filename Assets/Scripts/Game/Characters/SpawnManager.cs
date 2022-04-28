@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    int numObjects = 2;
+    int numObjects = 6;
     public GameObject prefab;
 
     int interval = 2;

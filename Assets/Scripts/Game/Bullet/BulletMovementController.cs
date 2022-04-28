@@ -11,14 +11,11 @@ public class BulletMovementController : MonoBehaviour
     {
         this.speed = speed;
         this.target = target;
-
-    }
-    private void Start()
-    {
         currentPos = transform.position;
         direction = (target.position - currentPos).normalized;
-    }
 
+    }
+ 
     void Update()
     {
         transform.position += direction * Time.deltaTime * speed;
