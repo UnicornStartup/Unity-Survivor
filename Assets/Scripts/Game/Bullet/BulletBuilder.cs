@@ -16,13 +16,15 @@ public class BulletBuilder
         this.bullet.AddComponent<SpriteRenderer>();
         this.bullet.AddComponent<BulletController>();
         this.bullet.AddComponent<BulletMovementController>();
+        Animator animator = this.bullet.AddComponent<Animator>();
+        animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Anim/Bullet/Fireball/Bullet");
         this.bullet.name = "Bullet";
         this.bullet.tag = "Bullet";
 
         CircleCollider2D colider = bullet.AddComponent<CircleCollider2D>();
-        colider.radius = 4;
+        colider.radius = 0.3f;
         colider.isTrigger = false;
-        this.bullet.transform.localScale = new Vector3(0.1f, 0.1f);
+        this.bullet.transform.localScale = new Vector3(1f, 1f);
     }
     public BulletBuilder(GameObject bullet)
     {
@@ -37,7 +39,7 @@ public class BulletBuilder
 
     public BulletBuilder setTileset(string nameCollection)
     {
-        tileSet = Resources.LoadAll<Sprite>($"Sprites/{nameCollection}");
+        tileSet = Resources.LoadAll<Sprite>($"Sprites/Bullets/{nameCollection}");
         return this;
     }
     public BulletBuilder setSprite(string nameSprite)

@@ -15,7 +15,7 @@ public class ExperienceBuilder
         this.tileSet = Resources.LoadAll<Sprite>($"Sprites/exp");
         this.experience.AddComponent<SpriteRenderer>();
         BoxCollider2D collider = this.experience.AddComponent<BoxCollider2D>();
-        collider.size = new Vector2(1, 1);
+        collider.size = new Vector2(1.3f, 1.3f);
         collider.isTrigger = true;
         this.experience.transform.localScale = new Vector3(0.4f, 0.4f);
         this.experience.AddComponent<ExperienceController>();

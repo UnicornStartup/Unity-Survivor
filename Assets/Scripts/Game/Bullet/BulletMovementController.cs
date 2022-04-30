@@ -14,6 +14,10 @@ public class BulletMovementController : MonoBehaviour
         currentPos = transform.position;
         direction = (target.position - currentPos).normalized;
 
+       
+
+        transform.right = Vector3.Lerp(transform.right, target.position - currentPos, 1000 * Time.deltaTime);
+
     }
  
     void Update()

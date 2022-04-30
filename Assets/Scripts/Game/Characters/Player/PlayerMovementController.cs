@@ -11,6 +11,9 @@ public class PlayerMovementController : MonoBehaviour
     private Rigidbody2D rb;
     public Transform target;
 
+    private bool isFlipped = false;
+    private bool oldFlipped = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -36,10 +39,22 @@ public class PlayerMovementController : MonoBehaviour
             Vector2 movement = new Vector2(joystickVector.x * playerController.stats.getvalue(StatType.MoveSpeed), joystickVector.y * playerController.stats.getvalue(StatType.MoveSpeed));
             rb.velocity = movement;
             moveBackground(new Vector2(joystickVector.x / backgroundSpeed, joystickVector.y / backgroundSpeed));
+
+            isFlipped = joystickVector.x > 0 ? false : true;
+            flipCharacter(isFlipped);
         }
         else
         {
             rb.velocity = Vector2.zero;
+        }
+    }
+
+    void flipCharacter(bool isFlipped)
+    {
+        if(oldFlipped != isFlipped)
+        {
+            this.GetComponent<SpriteRenderer>().flipX = isFlipped;
+            oldFlipped = isFlipped;
         }
     }
 
