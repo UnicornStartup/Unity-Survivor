@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    int numObjects = 6;
     public GameObject prefab;
 
-    int interval = 2;
-    float nextTime = 0;
+    public int numObjects = 6;
+    public int angleStartSpawn = 0;
+    public int angleDistanceAumenton = 10;
+    public float waitTime = 2.0f;
+
+    private float timer = 0.0f;
 
     public SpawnEnemy spawnEnemy;
     public SpawnBullet spawnBullet;
@@ -19,17 +22,17 @@ public class SpawnManager : MonoBehaviour
 
     void Update()
     {
-        if (Time.time >= nextTime)
+        timer += Time.deltaTime;
+        if (timer > waitTime)
         {
             Vector3 center = transform.position;
-            for (int i = 0; i < numObjects; i++)
+            for (int i = angleStartSpawn; i < numObjects + angleStartSpawn; i++)
             {
-                int a = i * 30;
+                int a = i * angleDistanceAumenton;
                 Vector3 pos = RandomCircle(center, 10.0f, a);
                 spawnEnemy.spawn(pos, transform);
             }
-            nextTime += interval;
-
+            timer = timer - waitTime;
         }
 
     }

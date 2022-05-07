@@ -33,28 +33,28 @@ public class DataClass
             PlayerPrefs.Save();
         }
     }
-    public static int SETTINGS_VOLUME_MUSIC
+    public static bool SETTINGS_VOLUME_MUSIC
     {
         get
         {
-            return PlayerPrefs.GetInt("VOLUME_MUSIC");
+            return PlayerPrefs.GetInt("VOLUME_MUSIC") == 0;
         }
         set
         {
-            PlayerPrefs.SetInt("VOLUME_MUSIC", value);
+            PlayerPrefs.SetInt("VOLUME_MUSIC", (value ? 0 : 1));
             PlayerPrefs.Save();
         }
     }
 
-    public static int SETTINGS_VOLUME_EFFECTS
+    public static bool SETTINGS_VOLUME_EFFECTS
     {
         get
         {
-            return PlayerPrefs.GetInt("VOLUME_EFFECTS");
+            return PlayerPrefs.GetInt("VOLUME_EFFECTS") == 0;
         }
         set
         {
-            PlayerPrefs.SetInt("VOLUME_EFFECTS", value);
+            PlayerPrefs.SetInt("VOLUME_EFFECTS", (value ? 0 : 1));
             PlayerPrefs.Save();
         }
     }

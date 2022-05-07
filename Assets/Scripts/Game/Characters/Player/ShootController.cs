@@ -23,6 +23,7 @@ public class ShootController : MonoBehaviour
             {
                 closest.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
                 spawnBullet.spawn(this.transform.position, closest.transform, (int)playerController.stats.getvalue(StatType.Damage));
+                SoundManager.Instance.PlayShoot();
             }
         }
     }
